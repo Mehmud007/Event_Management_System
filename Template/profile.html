@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+.header {
+            position: fixed;
+            top: 10px;
+            right: 0px;
+            height: 76px;
+            width: 100%;
+            z-index: 9999;
+            background-color: black;
+            height: 70px;
+            margin-top: -15px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        .navigation {
+            float: left;
+            position: absolute;
+            top: 20px;
+            right: 6px;
+            margin-left: 105px;
+
+        }
+
+        .logo h1 {
+            margin: 5px 0px;
+            padding-top: 15px;
+            padding-left: 120px;
+            font-size: 30px;
+        }
+
+        .logo h1 a {
+            background: linear-gradient(rgba(216, 72, 14, 0.822), rgb(209, 145, 7));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navigation ul li {
+            display: inline-block;
+            margin-right: 32px;
+        }
+
+        .navigation ul li a {
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .navigation ul li.active a,
+        .navigation ul li a:hover {
+            color: #cf5b2d;
+            transition: all 0.5s ease;
+        }
+
+        .nav li a:hover,
+        .nav li a:focus {
+            background: none;
+        }
+
+        .banner-img img {
+            margin-top: 65px;
+        }
+
+        .nav {
+            margin-top: 8px;
+        }
+
+    .caret {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        border-top: 4px dashed;
+        border-top: 4px solid \9;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1><a href="/index/">Event Management</a></h1>
+        </div>
+        <div class="navigation">
+            <ul class="nav">
+                <li><a href="/index/">Home</a></li>
+                <li><a href="services">Services</a></li>
+                <li><a href="#">Our Work</a></li>
+
+                {% if username %}
+                <li>
+                    <div class="dropdown">
+                        <a href="#" data-toggle="dropdown">{{username}}<span class="caret" style="margin-top: -4px;
+                            margin-left: 10px;"></span></a>
+                        <ul class="dropdown-menu" style=" background: rgba(0, 0, 0, 0.6);">
+                            <li><a href="book_event" style="font-size: 12px;">BOOK_EVENT</a></li>
+                            <li><a href="#" style="font-size: 12px;">PROFILE</a></li>
+                            <li><a href="u_logout" style="font-size: 12px;">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% else %}
+                <li><a href="signin">Sign In</a></li>
+                <li><a href="signup">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Profile</h1>
+        <table class="table table-bordered t1" style=" width : 40%;">
+            <tr>
+                <th class="frst"><label class='col-form-label left'>Name </label></th>
+                <td class="frst"><label class='col-form-label input1'>{{name}}</label></td>
+            </tr>
+            <tr>
+                <th class="frst"><label class='col-form-label left'>Phone No. </label></th>&nbsp; &nbsp;
+                <td class="frst"><label class='col-form-label input1'>{{phonno}}</label></td>
+            </tr>
+            <tr>
+                <th class="frst"><label class='col-form-label left'>Email: </label></th>&nbsp; &nbsp;
+                <td class="frst"><label class='col-form-label input1'>{{email}}</label></td>
+            </tr>
+        </table>
+        <br>
+        <a href="#" class="btn btn-primary btn1">Edit Profile</a>
+        <br>
+        <br>
+        <form action="profile" method="POST" style="display: none" class="edit">
+            {% csrf_token %}
+            <table>
+                <table style="border-collapse: separate;
+                border-spacing: 10px;">
+                    <tr class="other">
+                        <td><label for="fname" class='col-form-label'>First Name</label></td>
+                        <td><input type="text" id="fname" class=" input1 form-control" name="fname"
+                                placeholder="first name" autocomplete="off" pattern="(?!.[0-9]).{3,30}"
+                                title="Length should be between 3 to 30" required></td>
+                    </tr>
+                    <tr class="other">
+                        <td><label for="lname" class='col-form-label'>Last Name </label></td>
+                        <td><input type="text" id="lname" name="lname" class=" input1 form-control"
+                                placeholder="last name" autocomplete="off" pattern="(?!.[0-9]).{3,30}"
+                                title="Length should be between 3 to 30" required></td>
+                    </tr>
+                    <tr class="other">
+                        <td><label for="email" class='col-form-label'>Email </label></td>
+                        <td><input type="email" id="email" name="email" class=" input1 form-control" placeholder="Email"
+                                autocomplete="off" required></td>
+                    </tr>
+                    <tr class="other">
+                        <td><label for="lname" class='col-form-label'>Phone No.</label></td>
+                        <td><input type="text" id="lname" name="phno" class=" input1 form-control"
+                                placeholder="Phone No." autocomplete="off" pattern="[7-9]{1}[0-9]{9}"
+                                title="Should start with 7/8/9 and length should be 10 " required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit" style="    margin-top: 20px;
+                            margin-left: 33px;
+                            width: 195px;" class="btn btn-primary">Submit</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button style=" margin-top: 0px;
+                            margin-left: 33px;
+                            width: 195px;" class="btn btn-primary cancel">Cancel</button></td>
+                    </tr>
+                </table>
+        </form>
+        <br>
+        <h1>Your Events</h1>
+        <br>
+        {% if b_event.exists%}
+        <H3> Birthday Event</H3>
+        <table class="table table-bordered">
+            <!-- style="width: 80%; text-align:center; margin:0% 10%" -->
+            <tr>
+                <td>No.</td>
+                <td>Event Type</td>
+                <td>Event Date</td>
+                <td>Event Time</td>
+                <td>No. of persons</td>
+                <td>Selected Package</td>
+                <td>Selected Hall</td>
+                <td>Total Amount</td>
+            </tr>
+            {% for i in b_event %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.event_type}}</td>
+                <td>{{i.starting_date | date:'d M, Y'}}</td>
+                <td>{{i.event_time}}</td>
+                <td>{{i.no_of_persons}}</td>
+                <td>{{i.selected_package}}</td>
+                <td>{{i.selected_hall}}</td>
+                <td>{{i.total_amount}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        {% endif %}
+        {%if w_event.exists %}
+        <H3> Wedding Event</H3>
+        <table class="table table-bordered">
+            <tr>
+                <td>No.</td>
+                <td>Event Type</td>
+                <td>Starting Date</td>
+                <td>Ending Date</td>
+                <td>Event Time</td>
+                <td>No. of persons</td>
+                <td>Selected Package</td>
+                <td>Selected Hall</td>
+                <td>Total Amount</td>
+            </tr>
+            {% for i in w_event %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.event_type}}</td>
+                <td>{{i.starting_date | date:'d M, Y'}}</td>
+                <td>{{i.ending_date | date:'d M, Y'}}</td>
+                <td>{{i.event_time}}</td>
+                <td>{{i.no_of_persons}}</td>
+                <td>{{i.selected_package}}</td>
+                <td>{{i.selected_hall}}</td>
+                <td>{{i.total_amount}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        {% endif %}
+        {% if c_event.exists %}
+        <H3> Corporate Event</H3>
+        <table class="table table-bordered">
+            <tr>
+                <td>No.</td>
+                <td>Event Type</td>
+                <td>Starting Date</td>
+                <td>Ending Date</td>
+                <td>Event Time</td>
+                <td>No. of persons</td>
+                <td>Selected Package</td>
+                <td>Selected Hall</td>
+                <td>Total Amount</td>
+            </tr>
+            {% for i in c_event %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.event_type}}</td>
+                <td>{{i.starting_date | date:'d M, Y'}}</td>
+                <td>{{i.ending_date | date:'d M, Y'}}</td>
+                <td>{{i.event_time}}</td>
+                <td>{{i.no_of_persons}}</td>
+                <td>{{i.selected_package}}</td>
+                <td>{{i.selected_hall}}</td>
+                <td>{{i.total_amount}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        {% if not b_event.exists and not w_event.exists and not c_event.exists %}
+        <p>No Events</p>
+        {% endif %}
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.btn').click(function () {
+                $('.t1').hide();
+                $('.edit').show();
+                $('.btn1').css('pointer-events', "none");
+                $('.btn1').hide();
+
+            });
+            $('.cancel').click(function(){
+                $('.t1').show();
+                $('.edit').hide();
+                $('.btn1').css('pointer-events', "default");
+                $('.btn1').show();
+                $('.other td input').prop('required',false);
+                $('form').prop('method','GET');
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

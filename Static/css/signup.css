@@ -1,0 +1,80 @@
+body{
+    background:url(../images/pic1.jpg) no-repeat;
+    background-size:cover;
+}
+html{
+    font-family: 'Lato','Arial';
+    font-size: 20px;
+    font-weight: 300;
+    color: #555;
+    text-rendering: optimizeLegibility;
+}
+span{
+    color: red; 
+}
+td{
+    text-align:left;
+    
+}
+#abc{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    
+}
+input[type=submit]{
+    margin-right: 30px;
+    width: 180px;
+    height: 30px;
+    background: transparent;
+     border-color: black;
+    cursor: pointer;
+    background-color: #7f7c8b;
+    font-weight: bold;
+}
+input[type=reset]{
+    margin-left: 30px;
+    width: 180px;
+    height: 30px;
+    background: transparent;
+     border-color: #060607;
+    cursor: pointer;
+    background-color: #7f7c8b;
+    font-weight: bold;
+}
+table{
+    border-spacing: 20px;
+   background: transparent;
+}
+select{
+    width: 50%;
+    height: auto;
+    
+}
+input[type=text],
+input[type=password],
+input[type=email]{
+    width: 300px;
+    padding: 5px;
+    background: transparent;
+    border-color: black;
+    
+   
+}
+label
+{
+    color: #2c2c2c;
+    margin-right: 50px;
+    
+}
+::-webkit-input-placeholder{
+    color: rgba(0, 0, 0, 0.37);
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hall</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .container{
+            margin-top: 30px;
+        }
+        .heading{
+            margin-bottom: 20px;
+        }
+        .image{
+            margin-top: 0px;
+        }
+        .image img{
+            height: 335px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="details">
+            <h1 class="heading">Hall Details</h1>
+            <p>Hall name: {{hall.name}}</p>
+            <p>Hall Address: {{hall.address}}</p>
+            <p>Description: {{hall.hall_description}}</p>
+            <p>Hall Rent: {{hall.hall_rent}}</p>
+            <p>Hall Capacity: {{hall.hall_capacity}}</p>
+        </div>
+        <div class="image">
+            <img src="{{media_url}}{{hall.image}}" alt="Hall Image">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load mathfilters %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Halls</title>
+    <style>
+      body{
+        background-image: url("{% static 'images/bg.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+      }
+      .card{
+        overflow: hidden;
+        display:inline-block !important; 
+        width: 18rem;
+        margin:15px 0px 0px 55px;
+      }
+      .card img{
+        transition: all 1s;
+        width: 100%;
+      }
+      .card img:hover{
+        transform: scale(1.1)
+      }
+    </style>
+    {% if id %}
+          <style>
+          .card{
+            margin:15px 0px 0px 40px;
+          }
+        </style>
+    {% endif %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+      <h1>Halls</h1>
+    {% for i in halls %}
+      {% if i.is_booked == False %}
+        <div class="card">
+                <img class="card-img-top" src="{{media_url}}{{i.image}}" alt="Hall Image" style="height: 191px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.name}}</h5>
+                  <p class="card-text">Hall capacity: {{i.hall_capacity}}</p>
+                  <p class="card-text">Hall rent: {{i.hall_rent}}</p>
+                  <p class="card-text">Hall address: {{i.address}}</p>
+                  {% if i.id == id%}
+                  <a href="{% url 'select_hall' i.id %}" class="btn btn-success ">Selected</a>
+                  <a href="{% url 'read_more' i.id %}" class="btn btn-primary " style="float: right;">Read More</a>
+                  {% else %}
+                  <a href="{% url 'select_hall' i.id %}" class="btn btn-primary ">Select Hall</a>
+                  <a href="{% url 'read_more' i.id %}" class="btn btn-primary "style="float: right;">Read More</a>
+                  {% endif %}
+                </div>
+              </div>
+              <span id="bt{{i.id}}"></span>
+      {% endif %}
+    {% endfor %}
+    {% if id %}
+    {%for i in halls%}
+    {% if i.is_booked == False %}
+          {% if id == i.id %}
+            <script>
+              let btn = document.getElementById('bt{{id}}')
+              btn.innerHTML = `<a href="/index/view_packages" class="btn btn-success" style="        position: relative;
+    bottom: 18px;
+    right: -13px;
+    width: 10%;">Next</a>`;
+            </script>
+            {% endif %}
+          {% endif %}
+    {% endfor %}
+    {% endif %} 
+</div>
+</body>
+</html>

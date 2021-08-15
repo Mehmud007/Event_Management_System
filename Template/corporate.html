@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <!-- Meta information -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- Mobile Specific Metas -->
+
+
+    <title>Corporate Event</title>
+
+    <!-- CSS Stylesheet -->
+    <link href="{% static 'birthday/css/bootstrap.css'%}" rel="stylesheet"><!-- bootstrap css -->
+    <link href="{% static 'birthday/css/owl.carousel.css'%}" rel="stylesheet"><!-- carousel Slider -->
+    <link href="{% static 'birthday/css/styles.css'%}" rel="stylesheet" /><!-- font css -->
+    <link href="{% static 'birthday/css/lightbox.css'%}" rel="stylesheet"><!-- Light Box css -->
+    <link href="{% static 'birthday/css/jquery.selectbox.css'%}" rel="stylesheet" /><!-- select Box css -->
+    <link href="{% static 'birthday/css/docs.css'%}" rel="stylesheet"><!--  template structure css -->
+    <!-- Used Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Domine:400,700%7COpen+Sans:300,300i,400,400i,600,600i,700,700i%7CRoboto:400,500"
+        rel="stylesheet">
+    <style>
+        .header {
+            position: fixed;
+            top: 10px;
+            right: 0px;
+            height: 76px;
+            width: 100%;
+            z-index: 9999;
+            background-color: black;
+            height: 70px;
+            margin-top: -15px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+        .page {
+            padding-top: 0px;
+        }
+
+        .navigation {
+            float: left;
+            position: absolute;
+            top: 20px;
+            right: 6px;
+            margin-left: 105px;
+
+        }
+
+        .logo h1 {
+            margin: 5px 0px;
+            padding-top: 15px;
+            padding-left: 120px;
+            font-size: 30px;
+        }
+
+        .logo h1 a {
+            background:linear-gradient(rgba(216, 72, 14, 0.822),rgb(209, 145, 7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+        }
+
+        .navigation ul li {
+            display: inline-block;
+            margin-right: 32px;
+        }
+
+        .navigation ul li a {
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .navigation ul li.active a,
+        .navigation ul li a:hover {
+            color:#cf5b2d;
+            transition: all 0.5s ease;
+        }
+
+        .nav li a:hover,
+        .nav li a:focus {
+            background: none;
+        }
+        .nav{
+            margin-top: 8px;
+        }
+        
+        .banner-img img {
+            margin-top: 65px;
+        }
+    </style>
+    
+
+</head>
+
+<body class="inner-page">
+    <div class="header">
+        <div class="logo">
+            <h1><a href=" ">Event Management</a></h1>
+        </div>
+        <div class="navigation">
+            <ul class="nav">
+                <li><a href="/index/">Home</a></li>
+                <li class="active"><a href="services">Services</a></li>
+                <li><a href="#">Our Work</a></li>
+
+                {% if username %}
+                <li>
+                    <div class="dropdown">
+                        <a href="#" data-toggle="dropdown">{{username}}<span class="caret" style="margin-top: -4px;
+                                    margin-left: 10px;"></span></a>
+                        <ul class="dropdown-menu" style=" background: rgba(0, 0, 0, 0.6);">
+                            <li><a href="book_event" style="font-size: 12px;">BOOK_EVENT</a></li>
+                            <li><a href="#" style="font-size: 12px;">PROFILE</a></li>
+                            <li><a href="u_logout" style="font-size: 12px;">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% else %}
+                <li><a href="signin">Sign In</a></li>
+                <li><a href="signup">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="page">
+
+        <div class="simple-banner">
+            <div class="banner-img">
+                <img src="{% static 'images/ahmedabad-corporate-events-organizer.jpg'%}"
+                    alt="ahmedabad-corporate-events-organizer" title="Corporate Events Organizer Ahmedabad">
+            </div>
+            <div class="text">
+                <div class="inner-text">
+                    <h1 style="color:#fff;">Corporate Events Organizer - Ahmedabad</h1>
+                    <p>Balloon Decoration | Corporate Events Decoration | Corporate Events Management Company</p>
+                </div>
+            </div>
+        </div>
+        <section class="content">
+            <div class="search-resultPage">
+                <div class="container">
+
+                    <div class="row">
+                        <div>
+                            <div class="hotel-info tab-content">
+                                <h2>Corporate Events Organizer Ahmedabad</h2>
+                                <div class="inner-info">
+                                    <p align="justify">Party Vibes Event Management Company Specialized in Corporate
+                                        Events Decoration and Organization From last 25 Years, Party Vibes have a wast
+                                        experience of corporate party decoration and management, We done 200+ corporate
+                                        party, 150+ satisfactory clientèle, also we have a wide range of theme party
+                                        collocations and we also arrange a road show, annual day show, with the A to Z
+                                        everything management. We have our own Party Host, Corporate Party Entertainer
+                                        and a lots of creative idea's... </p>
+                                    <p align="justify">We are Giving You to ONE STOP SOLUTION For Total Corporate Events
+                                        Management and Organization. We have lots of games to entertain your guests. We
+                                        are also providing a Catering service also and we have already space for
+                                        organize a big event.</p>
+                                    <div class="address">
+
+                                        <div class="col-sm-4">
+                                            <h4>Corporate Events </h4>
+                                            <ul class="customList">
+                                                <li>Conference/ Seminars</li>
+                                                <li>State/ National Convention</li>
+                                                <li>Product launching</li>
+                                                <li>Road shows</li>
+                                                <li>Secretarial services</li>
+                                                <li>Customer care meetings</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <h4>Corporate Events </h4>
+                                            <ul class="customList">
+
+                                                <li>Promotions</li>
+                                                <li>Multimedia</li>
+                                                <li>Presentations</li>
+                                                <li>Training programs</li>
+                                                <li>Annual Day Celebration</li>
+                                                <li>We also make a Custom Theme</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <h4>Corporate Events </h4>
+                                            <ul class="customList">
+                                                <li>Corporate Meet</li>
+                                                <li>Exhibitions</li>
+                                                <li>Brand Promotion</li>
+                                                <li>Celebrity Management</li>
+                                                <li>Led Screen</li>
+                                                <li>Professional Sound & Light</li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="photo-gallery tab-content">
+                            <h2>Corporate Events Photo Gallery</h2>
+                            <div class="gallery-view">
+                                <div class="row">
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/1.jpg'%}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/1.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/2.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/2.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/3.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/3.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/4.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/4.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/5.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/5.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/6.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/6.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/7.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/7.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/8.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/8.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Micky-Mouse Theme</div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/9.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/9.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/10.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/10.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/11.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/11.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="img">
+                                            <a href="{% static 'corporate/12.jpg' %}" data-lightbox="example-set"
+                                                data-title="Corporate Event Management">
+                                                <img src="{% static 'corporate/12.jpg' %}"
+                                                    alt="Corporate-Events-Organizers-in-Ahmedabad"
+                                                    title="Corporate Events Organizers in Ahmedabad">
+                                            </a>
+                                        </div>
+                                        <div class="name">Corporate Theme </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="book_event" class="btn btn-success" style="width: 20%; margin-left: 465px; background-color: #cf5b2d; border: #cf5b2d">Book Event</a>
+                        <div class="bookin-info">
+                            <div class="bottom-blcok">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="icon icon-assurance"></div>
+                                        <span>100% Assurance</span>
+                                        <p>We gives you 100% Assurance because we have a experienced and highly
+                                            practised team in the management to serve you "THE BEST"</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="icon icon-trust"></div>
+                                        <span>Trust</span>
+                                        <p>Event management name is enough & P.V. have some experience in decoration
+                                            field and they will not take any kind of chance to lose his clientèle. </p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="icon icon-promise"></div>
+                                        <span>Our Promise</span>
+                                        <p>We gives you a promise not just for satisfaction but we
+                                            will give you a promise to make you crazy & happy in your event.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/bootstrap.js'%}"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/owl.carousel.js'%}"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/scroll.js'%}"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/lightbox-plus-jquery.js'%}"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/jquery.selectbox-0.2.js'%}"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/jquery.form-validator.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/placeholder.js'%}"></script>
+    <script type="text/javascript" src="{% static 'birthday/js/coustem.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

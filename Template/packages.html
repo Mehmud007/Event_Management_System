@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+{% load mathfilters %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Packages</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+      .amount{
+        margin-bottom:1.0rem!important;
+      }
+      body{
+        background-image: url("{% static 'images/bg.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+      }
+    </style>
+    <script>
+      $(document).ready(function(){
+        $('.c_package').click (function() {
+          $('.cp').show();
+          $('.c_package').hide();
+          $('.c_pack').attr("href","c_package")
+        });
+      });
+    </script>
+  </head>
+<body>
+    <div class="container">
+        <h1>Here are some available Packages for your {{event_type}} event</h1>
+        {% if event_type == 'Birthday' %}
+        {% for i in packages %}
+        <div class="card" style="display:inline-block; width: 18rem;margin:15px 0px 0px 55px;">
+            <div class="card-body">
+              <h5 class="card-title">{{i.Package_name}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Price of package: {{i.Price_per_person}}</h6>
+              <p class="card-text">We will provide caterors, decorators and more for your event.See more details by clicking on read more</p>
+              <h6 class="card-subtitle mb-2 text-muted amount">Amount of the package: {{i.Price_per_person | mul:nop}}</h6>
+              {% if i.id == selected %}
+              <a href="{%url 'select_packages' i.id %}" class="btn btn-success">Selected</a>
+              {% if i.Package_name == 'Silver Package' %}
+              <a href="/index/silver_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Gold Package' %}
+              <a href="/index/gold_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Platinum Package' %}
+              <a href="/index/platinum_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {%else%}
+              <a href="{% url 'select_packages' i.id %}" class="btn btn-primary">Select package</a>
+              {% if i.Package_name == 'Silver Package'%}
+              <a href="/index/silver_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Gold Package'%}
+              <a href="/index/gold_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Platinum Package'%}
+              <a href="/index/platinum_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+          <br/>
+          <!-- <div class="card" style="display:inline-block; width: 18rem;margin:15px 0px 0px 55px;">
+            <div class="card-body">
+              <h5 class="card-title">Customize Package</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Select</h6>
+              <p class="card-text">Select all as per your choice</p>
+              <div style="display: none;" class="cp">
+                  <form>
+                      <table align = "center"></table>
+                          <tr><input type="checkbox" name="cateror" id="cateror"> CATEROR</tr><br>
+                          <tr><input type="checkbox" name="decorator" id="decorator"> DECORATOR</tr><br>
+                          <tr><input type="checkbox" name="photographer" id="photographer"> PHOTOGRAPHER</tr><br>
+                          <tr><input type="checkbox" name="DJ" id="DJ"> DJ</tr>
+                          <tr><input type="checkbox" name="cateror" id="cateror">CATEROR</tr>
+                          <tr><input type="checkbox" name="cateror" id="cateror">CATEROR</tr> 
+                      </table>
+                  </form>
+                  <br>
+                  <a href="c_package" class="btn btn-primary c_pack">Select Package</a>
+              </div>
+              <a href="#" class="btn btn-primary c_package">Select Package</a>
+            </div>
+          </div> -->
+      {% elif event_type == 'Wedding' %}
+      {% for i in packages %}
+        <div class="card" style="display:inline-block; width: 18rem;margin:15px 0px 0px 55px;">
+            <div class="card-body">
+              <h5 class="card-title">{{i.Package_name}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Price of package: {{i.package_price}}</h6>
+              <p class="card-text">We will provide caterors, decorators and more for your event.See more details by clicking on read more</p>
+              <h6 class="card-subtitle mb-2 text-muted amount">Number  of persons {{i.person_capacity}} (If you want to arrange an event for more than {{i.person_capacity}}, you have to pay extra {{i.Price_per_extra_fifty_person}} for per extra 50 persons</h6>
+              <h6 class="card-subtitle mb-2 text-muted amount">This package is of {{i.No_of_days}} days. (You have to pay extra {{i.Price_per_extra_day}} if you wants to extend days)</h6>
+              {% if i.id == selected %}
+              <a href="{%url 'select_packages' i.id %}" class="btn btn-success">Selected</a>
+              {% if i.Package_name == 'Silver Package' %}
+              <a href="/index/silver_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Gold Package' %}
+              <a href="/index/gold_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Platinum Package' %}
+              <a href="/index/platinum_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {%else%}
+              <a href="{% url 'select_packages' i.id %}" class="btn btn-primary">Select package</a>
+              {% if i.Package_name == 'Silver Package'%}
+              <a href="/index/silver_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Gold Package'%}
+              <a href="/index/gold_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Platinum Package'%}
+              <a href="/index/platinum_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+          <br/>
+      {% elif event_type == 'Corporate'%}
+      {% for i in packages %}
+        <div class="card" style="display:inline-block; width: 18rem;margin:15px 0px 0px 55px;">
+            <div class="card-body">
+                <h5 class="card-title">{{i.Package_name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Price of package: {{i.package_price}}</h6>
+                <p class="card-text">We will provide caterors, decorators and more for your event.See more details by clicking on read more</p>
+                <h6 class="card-subtitle mb-2 text-muted amount">Number  of persons {{i.person_capacity}} (If you want to arrange an event for more than {{i.person_capacity}}, you have to pay extra {{i.Price_per_extra_fifty_person}} for per extra 50 persons</h6>
+                <h6 class="card-subtitle mb-2 text-muted amount">This package is of {{i.No_of_days}} days. (You have to pay extra {{i.Price_per_extra_day}} if you wants to extend days)</h6>
+              {% if i.id == selected %}
+              <a href="{%url 'select_packages' i.id %}" class="btn btn-success">Selected</a>
+              {% if i.Package_name == 'Silver Package' %}
+              <a href="/index/silver_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Gold Package' %}
+              <a href="/index/gold_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Platinum Package' %}
+              <a href="/index/platinum_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {%else%}
+              <a href="{% url 'select_packages' i.id %}" class="btn btn-primary">Select package</a>
+              {% if i.Package_name == 'Silver Package'%}
+              <a href="/index/silver_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Gold Package'%}
+              <a href="/index/gold_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% if i.Package_name == 'Platinum Package'%}
+              <a href="/index/platinum_package" class="btn btn-primary" style="float: right;">Read More</a>
+              {% endif %}
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+          <br/>
+      {% endif %}
+      {% if selected %}
+          <a href="/index/confirm_booking" class="btn btn-success" style="margin-top: 30px;float: right;margin-right: 70px;">Confirm Booking</a>
+          {% endif %}
+    </div>
+</body>
+</html>

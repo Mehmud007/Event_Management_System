@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load static %}
+{% load mathfilters %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <title>Gold Package</title>
+    <style>
+        body {
+            background-image:linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.842)),
+            url("{%static 'images/wedding3.jpg'%}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        .mb-25 {
+            font-size: 20px;
+            list-style: none;
+            padding-inline-start: 30px;
+            line-height: 30px;
+        }
+
+        .mb-25 ul li i {
+            padding-top: 3px;
+        }
+
+        .sec-title3 h3 {
+            font-size: 45px;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="header">
+                <div class="logo">
+                    <h1><a href=" ">Event Management</a></h1>
+                </div>
+                <div class="navigation">
+                    <ul class="nav">
+                        <li><a href="/index/">Home</a></li>
+                        <li class="active"><a href="services">Services</a></li>
+                        <li><a href="#">Our Work</a></li>
+        
+                        {% if username %}
+                        <li>
+                            <div class="dropdown">
+                                <a href="#" data-toggle="dropdown">{{username}}<span class="caret" style="margin-top: -4px;
+                                    margin-left: 10px;"></span></a>
+                                <ul class="dropdown-menu" style=" background: rgba(0, 0, 0, 0.6);">
+                                    <li><a href="book_event" style="font-size: 12px;">BOOK_EVENT</a></li>
+                                    <li><a href="#" style="font-size: 12px;">PROFILE</a></li>
+                                    <li><a href="u_logout" style="font-size: 12px;">Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        {% else %}
+                        <li><a href="signin">Sign In</a></li>
+                        <li><a href="signup">Sign Up</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+    <div class="main-content">
+        <div class="rs-breadcrumbs sec-color">
+            <div class="breadcrumbs-inner">
+                <div class="container">
+                    <div class="breadcrumbs-text">
+                        <h1 class="breadcrumbs-title" style="font-size:60px;     margin-top: 70px;">Gold Package
+                            {%if nop%}
+                            {% for i in package %}
+                            {%if i.Package_name == 'Gold Package'%}
+                            Total Rs.{{total | add:i.package_price}}
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                        </h1>
+                        <p style="font-size: 20px;">The Gold package is the perfect solution for those event organizers who wish to take a hands-on approach to the planning of their event, but would like the direction and assistance of a
+                            professional to make the process less overwhelming. You will receive all of the extensive consultation services that come with the Platinum package, but instead of having Gracious Fusion
+                            make the arrangements and execute the plans, you will carry out these tasks with our guidance. Our goal is for you to save time, money, and eliminate stress by supplementing your hard
+                            work with our expertise. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-lg-12 mb-md-50">
+            <div class="service-res-inner">
+                <div class="sec-title3" style="margin-bottom:0px;">
+                    <h3>This package includes</h3>
+                </div>
+                <ul class="mb-25">
+                    <li><i class="ion-arrow-right-c"></i> Unlimited phone & email correspondence from the day of
+                        contracted service
+                        through your event day</li>
+                    <li><i class="ion-arrow-right-c"></i> Venue research and coordination (City/Hotels/Convention
+                        Facilities)</li>
+                    <li><i class="ion-arrow-right-c"></i>Coordinate all event specifications, rate requirements, food
+                        and beverage, and
+                        audiovisual</li>
+                    <li><i class="ion-arrow-right-c"></i> Customized list of preferred vendors</li>
+                    <li><i class="ion-arrow-right-c"></i> Thorough review of all contracts</li>
+                    <li><i class="ion-arrow-right-c"></i> Personalized event checklist and budget</li>
+                    <li><i class="ion-arrow-right-c"></i> Guidance with music selection and speeches</li>
+                    <li><i class="ion-arrow-right-c"></i> Event agenda development</li>
+                    <li><i class="ion-arrow-right-c"></i> Assistance with custom event collateral such as invitation
+                        preparation and
+                        printing</li>
+                    <li><i class="ion-arrow-right-c"></i> Negotiation of prices & fees with all vendors</li>
+                    <li><i class="ion-arrow-right-c"></i> Oversight of registration activities (if required)</li>
+                    <li><i class="ion-arrow-right-c"></i> Assistance in the development of creative ideas, defining your
+                        unique style,
+                        choosing a color palette and determining specific and traditions for your event</li>
+                    <li><i class="ion-arrow-right-c"></i> Coordinator's presence on menu tasting with caterer and advice
+                        with selection</li>
+                    <li><i class="ion-arrow-right-c"></i> Etiquette advice and coaching</li>
+                    <li><i class="ion-arrow-right-c"></i> Guidance with guest list management and seating planning</li>
+                    <li><i class="ion-arrow-right-c"></i> Advice for accommodations for out-of-town attendees,
+                        activities, and welcome gifts</li>
+                    <li><i class="ion-arrow-right-c"></i> Organization of a detailed event time line to be provided to
+                        you, designated
+                        stakeholders, and all vendors</li>
+                    <li><i class="ion-arrow-right-c"></i> Confirmation of all arrangements with venue and vendors prior
+                        to the day of
+                        the event</li>
+                    <li><i class="ion-arrow-right-c"></i> Conflict resolution</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

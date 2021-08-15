@@ -1,0 +1,73 @@
+html, body{
+	font-family: 'Open Sans', sans-serif;
+	background:#ffffff;
+	margin: 0;
+}
+p,ul li,ol li{
+	margin:0;
+	font-size:14px;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Great Vibes', cursive;
+	margin:0;
+}
+ul,label{
+	margin:0;
+	padding:0;
+}
+body a:hover{
+	text-decoration:none;
+}
+#txt h3{
+    color: #fff;
+    margin: 111px;
+    padding: 50px;
+    font-size:70px;
+}
+.banner{
+    background-color: rgba(0, 0, 0, 0.651)
+} 
+.header {
+	padding:24px 0 0;
+}
+.logo{
+	float:left;
+}
+.logo h1 a {
+    font-size: 30px;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+.navigation{
+	float:left;
+    margin-top: -1px;
+    margin-left: 105px;
+}
+.navigation ul li{
+	display:inline-block;
+	margin-right:32px;
+}
+.navigation ul li a{
+	color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.navigation ul li.active a,.navigation ul li a:hover{
+    color:#cf2d50;
+    transition: all 0.5s ease; 
+}
+.container ul li{
+    display: inline-block;
+    margin-left: 10px;
+}
+.container ul li a{
+  color:#fff;
+}
+
+.nav li a:hover,
+.nav li a:focus{
+    background: none;
+}

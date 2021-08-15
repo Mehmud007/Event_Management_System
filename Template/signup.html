@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title> Sign Up </title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style> 
+            .input1 {
+                margin-left: 40px;
+            }
+            h1{
+                text-align: center;
+                
+            }
+            table {
+                border-collapse: separate;
+                border-spacing: 10px;
+            }
+    
+            body{
+                background-image: url("{% static 'images/bg.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+            .content{
+                margin-top: 80px;
+                margin-left: 420px;
+                margin-right: 400px;
+                padding: 20px 60px 30px 60px;
+                background-color: white;
+            }
+            .form-control::-webkit-input-placeholder { 
+                color: rgba(0, 0, 0, 0.349);
+                } 
+            .btn1{
+                margin-top: 30px;
+                margin-left: 70px;
+                width: 70%;
+            }
+            #btn2{
+                margin-left: 13px;
+                margin-top: 30px;
+                width: 132.3%;
+            }
+            
+        </style>
+        <script>
+                function pass_validation() {
+                    var firstpassword = document.f1.password.value;
+                    var secondpassword = document.f1.confpassword.value;
+                    var fname = document.getElementById('fname').value;
+                    var lname = document.getElementById('lname').value;
+                    if (firstpassword != secondpassword) {
+                        alert("Password and Confirm Password must be same!");
+                        return false;
+                    }
+                    if(fname.length < 2 || lname.length < 2){
+                    document.getElementById('finame').innerHTML = "Length must be greater than 2";
+                    return false;
+                }
+                } 
+            </script>
+        </head>
+    <body>
+       <div class="content">
+            <h1>Sign Up</h1>
+            {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {% endif %}
+                <form action="signup" name="f1" method="post" onsubmit="return pass_validation()">
+                {% csrf_token %} 
+                <table>
+                    <tr>
+                        <td><label for="fname" class='col-form-label'>First Name</label></td>
+                        <td><input type="text" id="fname" class=" input1 form-control" name="fname" placeholder="first name" autocomplete="off" pattern="(?!.[0-9]).{3,30}" title="Length should be between 3 to 30"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lname" class='col-form-label'>Last Name </label></td>
+                        <td><input type="text" id="lname" name="lname" class=" input1 form-control" placeholder="last name" autocomplete="off" pattern="(?!.[0-9]).{3,30}" title="Length should be between 3 to 30"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email" class='col-form-label'>Email </label></td>
+                        <td><input type="email" id="email" name="email" class=" input1 form-control" placeholder="Email" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password" class='col-form-label'>Password </label></td>
+                        <td><input type="password" id="password" name="password" class=" input1 form-control" placeholder="Password" pattern="(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{8,15}" title="Must contain at least one number and one uppercase and one special character lowercase letter, and at least 8 or more characters"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="confpassword" class='col-form-label'>Confirm Password</label></td>
+                        <td><input type="password" id="confpassword" name="confpassword" class=" input1 form-control" placeholder="Confirm password" pattern="(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{8,15}" title="Must contain at least one number and one uppercase and one special character lowercase letter, and at least 8 or more characters"></td>
+                    </tr>
+                    <tr>
+                            <td><label for="lname" class='col-form-label'>Phone No.</label></td>
+                            <td><input type="text" id="lname" name="phno" class=" input1 form-control" placeholder="Phone No." autocomplete="off" pattern="[7-9]{1}[0-9]{9}" title="Should start with 7/8/9 and length should be 10 "
+                                ></td>
+                    </tr>
+                    <tr>
+                        <td><label class='col-form-label'>Login As </label></td>
+                        <td>
+                            <select class="form-control input1" name = 'category'>
+                                <option>Customer</option>
+                                <option>Decorator</option>
+                                <option>Cateror</option>
+                              </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-primary" id='btn2'>Submit</button></td>
+                        <td><button type="reset" class="btn btn-primary btn1">Reset</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

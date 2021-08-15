@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+{% load static %}
+{% load mathfilters %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <title>Silver Package</title>
+    <style>
+        body {
+            background-image:linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.774)),
+            url("{%static 'images/wedding1.jpg'%}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+        .header {
+            position: fixed;
+            top: 10px;
+            right: 0px;
+            height: 76px;
+            width: 100%;
+            z-index: 9999;
+            background-color: black;
+            height: 70px;
+            margin-top: -15px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        .navigation {
+            float: left;
+            position: absolute;
+            top: 20px;
+            right: 6px;
+            margin-left: 105px;
+
+        }
+
+        .logo h1 {
+            margin: 5px 0px;
+            padding-top: 15px;
+            padding-left: 120px;
+            font-size: 30px;
+        }
+
+        .logo h1 a {
+            background: linear-gradient(rgba(216, 72, 14, 0.822), rgb(209, 145, 7));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navigation ul li {
+            display: inline-block;
+            margin-right: 32px;
+        }
+
+        .navigation ul li a {
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .navigation ul li.active a,
+        .navigation ul li a:hover {
+            color: #cf5b2d;
+            transition: all 0.5s ease;
+        }
+
+        .nav li a:hover,
+        .nav li a:focus {
+            background: none;
+        }
+
+        .banner-img img {
+            margin-top: 65px;
+        }
+
+        .nav {
+            margin-top: 8px;
+        }
+        .mb-25 {
+            font-size: 20px;
+            list-style: none;
+            padding-inline-start: 30px;
+            line-height: 35px;
+        }
+
+        .mb-25 ul li i {
+            padding-top: 3px;
+        }
+
+        .sec-title3 h3 {
+            font-size: 45px;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="header">
+                <div class="logo">
+                    <h1><a href=" ">Event Management</a></h1>
+                </div>
+                <div class="navigation">
+                    <ul class="nav">
+                        <li><a href="/index/">Home</a></li>
+                        <li class="active"><a href="services">Services</a></li>
+                        <li><a href="#">Our Work</a></li>
+        
+                        {% if username %}
+                        <li>
+                            <div class="dropdown">
+                                <a href="#" data-toggle="dropdown">{{username}}<span class="caret" style="margin-top: -4px;
+                                    margin-left: 10px;"></span></a>
+                                <ul class="dropdown-menu" style=" background: rgba(0, 0, 0, 0.6);">
+                                    <li><a href="book_event" style="font-size: 12px;">BOOK_EVENT</a></li>
+                                    <li><a href="#" style="font-size: 12px;">PROFILE</a></li>
+                                    <li><a href="u_logout" style="font-size: 12px;">Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        {% else %}
+                        <li><a href="signin">Sign In</a></li>
+                        <li><a href="signup">Sign Up</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+    <div class="main-content">
+        <div class="rs-breadcrumbs sec-color">
+            <div class="breadcrumbs-inner">
+                <div class="container">
+                    <div class="breadcrumbs-text">
+                        <h1 class="breadcrumbs-title" style="font-size:60px; margin-top: 70px;">Silver Package
+                            {%if nop%}
+                            {% for i in package %}
+                            {%if i.Package_name == 'Silver Package'%}
+                            Total Rs.{{total | add:i.package_price}}
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                        </h1>
+                        <p style="font-size: 20px;">With all of the planning and organization for your event completed,
+                            it's time to let go of the reins and have step in to ensure that all your efforts result in
+                            an idyllic, memorable, and flawless event. As part of our Silver package, we will meet with
+                            you approximately one month before the day of your event in order to familiarize ourselves
+                            with every detail and nuance of your special occasion. In the subsequent weeks, we will work
+                            closely with you to create a thorough time line, determine final tasks, and contact your
+                            vendors to confirm all arrangements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-lg-7 mb-md-50">
+            <div class="service-res-inner">
+                <div class="sec-title3" style="margin-bottom:0px;">
+                    <h3>This package includes</h3>
+                </div>
+                <ul class="mb-25">
+                    <li><i class="ion-arrow-right-c"></i> Initial consultation</li>
+                    <li><i class="ion-arrow-right-c"></i> Four In-person meetings</li>
+                    <li><i class="ion-arrow-right-c"></i> Review of Hall Order & Vendor Contracts</li>
+                    <li><i class="ion-arrow-right-c"></i> Confirm Day of Logistics (Vendors, Venues, Deliveries, etc.)
+                    </li>
+                    <li><i class="ion-arrow-right-c"></i> Finalize Day-Of Timeline</li>
+                    <li><i class="ion-arrow-right-c"></i> Attend Final Event Walkthrough</li>
+                    <li><i class="ion-arrow-right-c"></i> Set Up, Oversee and Manage he event</li>
+                    <li><i class="ion-arrow-right-c"></i> Collect/Deliver Everything From The Reception</li>
+                    <li><i class="ion-arrow-right-c"></i> Distribute Final Vendor Payments and Gratuities</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

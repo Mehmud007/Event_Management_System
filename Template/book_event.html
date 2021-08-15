@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Event</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        h1 {
+            text-align: center;
+
+        }
+
+        .input1 {
+            margin-left: 40px;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 10px;
+            margin-left: 20px;
+        }
+
+        body {
+            background-image: url("{% static 'images/bg.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .content {
+            margin-top: 40px;
+            margin-left: 420px;
+            margin-right: 400px;
+            padding: 20px 60px 30px 60px;
+            background-color: white;
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: rgba(0, 0, 0, 0.459);
+        }
+
+        .width1 {
+            width: 100%;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#select1').change(function () {
+                if (this.value == "Birthday") {
+                    $('#Birthday').show()
+                    $('.other').hide()
+                    $('#Birthday td input').prop('required',true)
+                    $('.other td input').prop('required',false)
+                }
+                else {
+                    $('.other').show()
+                    $('#Birthday').hide()
+                    $('.other td input').prop('required',true)
+                    $('#Birthday td input').prop('required',false)
+                }
+            });
+            $('#select1').click(function(){
+                $('#option1').prop('disabled',true);
+            });
+        });  
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Book Event</h1>
+        <form method="POST" action="view_hall">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th><label class='col-form-label'>Name </label></th>&nbsp; &nbsp;
+                    <td><label class='col-form-label input1'>{{username}}</label></td>
+                </tr>
+                <tr>
+                    <th><label class='col-form-label'>Phone No. </label></th>&nbsp; &nbsp;
+                    <td><label class='col-form-label input1'>{{phonno}}</label></td>
+                </tr>
+                <tr>
+                    <th><label class='col-form-label'>Email: </label></th>&nbsp; &nbsp;
+                    <td><label class='col-form-label input1'>{{email}}</label></td>
+                </tr>
+                <tr>
+                    <th><label class='col-form-label'>Event Type </label></th>
+                    <td>
+                        <select class="form-control input1 width1" id="select1" name="event_type" required>
+                            <option id="option1"> ----Select Event Type----</option>
+                            {% for i in data %}
+                            <option>{{i.Event_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr id="Birthday">
+                    <th><label class='col-form-label'>Event Date</label></th>
+                    <td><input type="date" id="dt" class=" input1 form-control width1" id="event_date"  name="event_date" min="{{date}}" max="{{mdate}}"></td>
+                </tr>
+                <tr class="other" style="display: none;">
+                    <th><label class='col-form-label'>Starting Date</label></th>
+                    <td><input type="date" class=" input1 form-control width1" name="strating_date" min="{{date}}" max="{{mdate}}"></td>
+                </tr>
+                <tr class="other" style="display: none;">
+                    <th><label class='col-form-label'>Ending Date</label></th>
+                    <td><input type="date" class=" input1 form-control width1" name="ending_date" min="{{date}}" max="{{mdate}}"></td>
+                </tr>
+                <tr>
+                    <th><label class='col-form-label'>Event Time</label></th>
+                    <td><input type="time" class=" input1 form-control width1" name="event_time" required></td>
+                </tr>
+                <tr>
+                    <th><label class='col-form-label'>Guests</label></th>
+                    <td><input type="number" class=" input1 form-control width1" name="nop" required></td>
+                </tr>
+                <tr> 
+                    <th></th>
+                    <td><input type="submit" class="btn btn-primary btn1 input1" style="width:100%" name="NEXT"
+                            value="NEXT"></td>
+                    <!-- <td><a href="view_hall"><button type="button">Submit</button></a></td> -->
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+html, body{
+	font-family: 'Open Sans', sans-serif;
+	background:#ffffff;
+	margin: 0;
+}
+p,ul li,ol li{
+	margin:0;
+	font-size:14px;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Great Vibes', cursive;
+	margin:0;
+}
+ul,label{
+	margin:0;
+	padding:0;
+}
+body a:hover{
+	text-decoration:none;
+}
+#txt h3{
+    color: #fff;
+    margin: 111px;
+    padding: 50px;
+    font-size:70px;
+}
+.banner{
+	background:url(../images/banner.jpg) no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    min-height:750px;
+    margin-top: 55px;
+}
+.banner_bottom_grids{
+    margin-top: 70px;
+}
+.header {
+	padding:24px 0 0;
+}
+.logo{
+	float:left;
+}
+.logo h1 a {
+    font-size: 30px;
+    background:linear-gradient(rgba(216, 72, 14, 0.822),rgb(209, 145, 7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+    text-decoration: none;
+    letter-spacing: px;
+    
+    font-weight: bold;
+}
+.navigation{
+	float:left;
+    margin-top: 0px;
+    margin-left: 260px;
+}
+.navigation ul li{
+	display:inline-block;
+	margin-right:32px;
+}
+.navigation ul li a{
+	color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.navigation ul li.active a,.navigation ul li a:hover{
+    color:#cf5b2d;
+    transition: all 0.5s ease; 
+}
+
+/* BANNER-BOTTOM */
+.banner-bottom{
+	padding:80px 0;
+}
+.heading {
+    text-transform: capitalize;
+    font-size: 40px;
+    color: #212121;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+.heading span{
+	color:#d12519!important;
+}
+.banner_bottom_grids{
+    margin-top: 70px;
+    text-align:center;
+}
+.banner_bottom_grids h4 {
+    margin: 32px 0 16px;
+    color: #212121;
+    text-transform: capitalize;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+.banner_bottom_grids p{
+	color:#999;
+	line-height:32px;
+}
+.banner_bottom_shape{
+	width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background:linear-gradient(to top,rgba(216, 72, 14, 0.822),rgb(209, 145, 7));
+    transform: rotate(45deg);
+    margin: 0 auto;
+	overflow:hidden;
+    transition: all 0.7s ease 0s;
+}
+.banner_bottom_shape:hover i{
+	width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    /* background:linear-gradient(to top,rgba(0, 0, 0, 0.822),rgb(104, 104, 104)); */
+    transform: rotate(360deg);
+    margin: 0 auto;
+    color: black;
+	overflow:hidden;
+    transition: all 0.5s ease 0s;
+}
+.banner_bottom_shape:hover{
+    transform: rotate(0deg);
+}
+.banner_bottom_shape i{
+	color:#ffffff;
+	font-size:32px;
+	line-height:101.2px;
+	transform: rotate(-45deg);
+}
+.para {
+    color: #999;
+    line-height: 32px;
+    text-align: center;
+    width: 65%;
+    margin: 15px auto 0;
+}
+/* SERVICES */
+.services {
+    padding: 80px 0;
+    background:linear-gradient(to top,rgb(209, 145, 7),rgba(216, 135, 14, 0.822));;
+}
+.services span {
+    color: #fff;
+}
+.services p {
+    color: #fff;
+}
+.services-tp {
+    margin: 64px 0 0;
+}
+.grid h4 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #050505;
+    margin: 20px 0 0;
+	letter-spacing:4px;
+}
+.grid p {
+    margin: 20px 0 0;
+    line-height: 28px;
+}
+.services_to_provide{
+    overflow: hidden;
+}
+.services_to_provide img {
+    transition: all 1s;
+    width: 100%;
+}
+.services_to_provide:hover img {
+   
+    transform: scale(1.1);
+}
+
+/* OUR-EVENTS */
+
+.our_events {
+    padding: 80px 0;
+}
+.our_events h4 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #050505;
+    margin:0 0 20px;
+	letter-spacing:4px;
+}
+.our_events li {
+    display: block;
+    line-height: 36px;
+}
+.our_events li a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+.our_events li a:hover{
+    color: #000000;
+    transition: all 0.7s ease ;
+}
+.our_events_type {
+    margin: 64px 0 0;
+    background:linear-gradient(to top,rgba(216, 72, 14, 0.822),rgb(209, 145, 7));
+    padding: 32px;
+}
+.info-top-right i {
+    padding-right: 18px;
+    color: #00000081;
+}
+.info-top-right i:hover{
+    padding-right: 18px;
+    color: #000000b9;
+}
+
+/* FOOTER */
+footer{
+	background: url(../images/footer.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+	padding:80px 0;
+}
+footer h2 {
+    text-align: center;
+}
+footer h2 a{
+	text-decoration: none;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 5px;
+    color: #fff;
+    display: block;
+    text-align: center;
+}
+.social_icons{
+	float: right;
+    margin: 8px 16px 0 0;
+}
+.social_list li{
+	display:inline-block;
+}
+.social_list li a{
+	width: 30px;
+    height: 30px;
+    color: #ffffff;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    border: 2px solid #cf5b2d;
+    border-radius: 25px;
+}
+.social_list li a i{
+	line-height:28px;
+}
+.social_list li a:hover{
+    color:#fff;
+    transition: all 0.8s ease; 
+}
+a.facebook:hover{
+	background:#3b5998;
+	border-color:#3b5998;
+}
+a.twitter:hover{
+	background:#1da1f2;
+	border-color:#1da1f2;
+}
+a.insta:hover{
+	background:#eba31ecb;
+	border-color:#eba31ecb;
+}
+a.whatsapp:hover{
+	background:#009650;
+	border-color:#009650;
+}
+.header {
+    position: fixed;
+    top: 10px;
+    right: 0px;
+    height: 76px;
+    width: 100%;
+    z-index: 9999;
+    background-color: black;
+    height: 70px;
+    margin-top: -15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.logo h1{
+    margin-left: 109px;
+}
+.container ul li{
+    display: inline-block;
+    margin-left: 10px;
+}
+.container ul li a{
+  color:#fff;
+}
+.footer-nav li a:hover{
+    color:#cf5b2d;
+    transition: all 0.8s ease; 
+}
+footer p {
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav li a:hover,
+.nav li a:focus{
+    background: none;
+}
+
+.js--wp-1,.js--wp-2,.js--wp-3{
+    opacity: 0;
+}
+.js--wp-2{
+    animation-duration: 1s;
+}
+.js--wp-1.animated,.js--wp-2.animated,.js--wp-3.animated{
+    opacity: 1;
+}

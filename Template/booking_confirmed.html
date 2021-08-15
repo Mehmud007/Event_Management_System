@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+{% load mathfilters %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confirmed</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+    @font-face {
+    font-family: Roboto;
+    src: url('https://res.cloudinary.com/dxfq3iotg/raw/upload/v1585021315/Roboto-Regular.ttf')
+}
+    body{
+        background-color: #e9ebee;
+        background-image: url("{% static 'images/bg.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h1{
+        text-align: center;
+        padding-top: 20px;
+    }
+    .container{
+        text-align: center;
+        margin-top: 50px;
+        background-color: #fff;
+        width: 30%;
+        height:560px;
+        border-radius: 10px;
+    }
+    .left{
+        font-weight: normal;
+        color: rgb(126, 123, 123);
+    }
+    th{
+        text-align: left;
+    }
+    td{
+        text-align: right;
+        padding-left: 20px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Booking Details</h1>
+        <table align='center'>
+            <tr>
+                <th><label class='col-form-label left'>Name </label></th>&nbsp; &nbsp;
+                <td><label class='col-form-label input1'>{{name}}</label></td>
+            </tr>
+            <tr>
+                <th><label class='col-form-label left'>Phone No. </label></th>&nbsp; &nbsp;
+                <td><label class='col-form-label input1'>{{phonno}}</label></td>
+            </tr>
+            <tr>
+                <th><label class='col-form-label left'>Email: </label></th>&nbsp; &nbsp;
+                <td><label class='col-form-label input1'>{{email}}</label></td>
+            </tr>
+            {% if event_type  == "Birthday"%}
+            <tr>
+                <th><label class='col-form-label left'>Event_date </label></th>&nbsp; &nbsp;
+                <td><label class='col-form-label input1'>{{event_date}}</label></td>
+            </tr>
+            {% else %}
+            <tr>
+                <th><label class='col-form-label left'>strating_date </label></th>&nbsp; &nbsp;
+                <td><label class='col-form-label input1'>{{strating_date}}</label></td>
+            </tr>
+            <tr>
+                <th><label class='col-form-label left'>ending_date </label></th>&nbsp; &nbsp;
+                <td><label class='col-form-label input1'>{{ending_date}}</label></td>
+            </tr>
+            {% endif %}
+            <tr>
+                <th><label class='col-form-label left'>Selected Package</label></th>&nbsp; &nbsp;
+                <td><label class='col-form-label input1'>{{package_name}}</label></td>
+            </tr>
+            <tr>
+                    <th><label class='col-form-label left'>Event_type </label></th>&nbsp; &nbsp;
+                    <td><label class='col-form-label input1'>{{event_type}}</label></td>
+            </tr>
+            <tr>
+                    <th><label class='col-form-label left'>Event_time </label></th>&nbsp; &nbsp;
+                    <td><label class='col-form-label input1'>{{event_time}}</label></td>
+            </tr>
+            <tr>
+                    <th><label class='col-form-label left'>No. of persons </label></th>&nbsp; &nbsp;
+                    <td><label class='col-form-label input1'>{{nop}}</label></td>
+            </tr>
+            <tr>
+                <th><label class='col-form-label left'>Total Amount </label></th>&nbsp; &nbsp;
+                <td><label class='col-form-label input1'>{{total}}</label></td>
+            </tr>
+        </table>
+        <a href="confirm" class="btn btn-success" style="margin-top: 10px; width:50%;">Confirm</a>
+    </div>
+</body>
+
+</html>
